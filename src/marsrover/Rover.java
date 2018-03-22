@@ -3,7 +3,10 @@ package marsrover;
 import marsrover.Mapa.Coordenadas;
 import marsrover.Mapa.Direcao;
 
-
+/**
+ *
+ * @author PedroFranceschinideF
+ */
 public class Rover {
 
     private Posicao posicao = null;
