@@ -23,7 +23,7 @@ public class RoverTest {
     
     
     @Before
-    public void position() {
+    public void posicao() {
     Posicao p = new Posicao(new Mapa.Coordenadas(1), new Mapa.Coordenadas(2), marsrover.Mapa.Direcao.N);
     }
     
@@ -32,7 +32,7 @@ public class RoverTest {
     }
 
     @Test
-    public void testePosition() {
+    public void testePosicao() {
         
     }
 }
