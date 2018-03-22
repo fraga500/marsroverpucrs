@@ -102,14 +102,14 @@ public class Rover {
         System.out.println("Digite a direcao que o rover esta apontado ");
         String dir = in.next();
         Rover rover = null;
-        if(dir.charAt(0)=='N'){
+        if(dir.charAt(0)=='N' || dir.charAt(0)=='n'){
         	rover = new Rover(new Mapa.Coordenadas(posX),new Mapa.Coordenadas(posY), Direcao.N);
-        }else if(dir.charAt(0)=='S') {
+        }else if(dir.charAt(0)=='S'|| dir.charAt(0)=='s') {
         	rover = new Rover(new Mapa.Coordenadas(posX),new Mapa.Coordenadas(posY), Direcao.S);
-        }else if(dir.charAt(0)=='W' || dir.charAt(0)=='O') {
+        }else if(dir.charAt(0)=='W' || dir.charAt(0)=='w') {
         	rover = new Rover(new Mapa.Coordenadas(posX),new Mapa.Coordenadas(posY), Direcao.W);
-        }else if(dir.charAt(0)=='E' || dir.charAt(0)=='L') {
-        	rover = new Rover(new Mapa.Coordenadas(posX),new Mapa.Coordenadas(posY), Direcao.W);
+        }else if(dir.charAt(0)=='E' || dir.charAt(0)=='l') {
+        	rover = new Rover(new Mapa.Coordenadas(posX),new Mapa.Coordenadas(posY), Direcao.E);
         }else {
         	System.out.println("Voce digitou alguma informaçao errada...");
         	control = 1;
@@ -123,11 +123,11 @@ public class Rover {
     		char[] comandos = texto.toCharArray();
     		Command[] comando = new Command[comandos.length];
     		for(int i =0;i<comandos.length;i++){
-    			if(comandos[i]=='M') {
+    			if(comandos[i]=='M' || comandos[i]=='m') {
     				comando[i] = Command.M;
-    			}else if (comandos[i]=='R') {
+    			}else if (comandos[i]=='R' || comandos[i]=='r') {
     				comando[i] = Command.R;
-    			}else if (comandos[i]=='L') {
+    			}else if (comandos[i]=='L' || comandos[i]=='l') {
     				comando[i] = Command.L;
     			}else {
     				System.out.println("Comando Invalido!");
