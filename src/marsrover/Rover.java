@@ -3,72 +3,79 @@ package marsrover;
 import marsrover.Mapa.Coordenadas;
 import marsrover.Mapa.Direcao;
 
-
+/**
+ *
+ * @author PedroFranceschinideF
+ */
 public class Rover {
 
-    private Posicao position = null;
+    private Posicao posicao = null;
 
     public enum Command {
         R, L, M;
 
-        private void process(Posicao position) {
+        private void process(Posicao posicao) {
             switch (this) {
                 case R:
-                    position.setDirecaoR();
+                    posicao.setDirecaoR();
                     break;
                 case L:
-                    position.setDirecaoL();
+                    posicao.setDirecaoL();
                     break;
                 case M:
-                    switch (position.getDirecao()) {
+                    switch (posicao.getDirecao()) {
                         case N:
-                            position.getPosicaoY().incrementar();
+                            posicao.getPosicaoY().incrementar();
                             break;
                         case E:
-                            position.getPosicaoX().incrementar();
+                            posicao.getPosicaoX().incrementar();
                             break;
                         case S:
-                            position.getPosicaoY().decrementar();
+                            posicao.getPosicaoY().decrementar();
                             break;
                         case W:
-                            position.getPosicaoX().decrementar();
+                            posicao.getPosicaoX().decrementar();
                     }
             }
         }
     }
 
     public Rover(Coordenadas x, Coordenadas y, Direcao direction) {
-        this.position = new Posicao(x, y, direction);
+        this.posicao = new Posicao(x, y, direction);
     }
 
     public void processCommands(Command[] commands) {
         for(int i = 0; i < commands.length; i++) {
-            commands[i].process(position);
+            commands[i].process(posicao);
         }
     }
 
-    public Mapa getPosition() {
-        return position;
+    public Mapa getPosicao() {
+        return posicao;
 
     }
 
     public static void main(String[] args) {
-        // Teste 1 LMLMLMLMM
+        //LMLMLMLMM
         Rover rover1 = new Rover(new Mapa.Coordenadas(1), new Mapa.Coordenadas(2), Direcao.N);
 
         rover1.processCommands(new Command[]{Command.L, Command.M,
             Command.L, Command.M, Command.L, Command.M,
             Command.L, Command.M, Command.M});
 
-        System.out.println(rover1.getPosition());
+        
+        System.out.println(rover1.getPosicao());
 
-        // Teste 2 MMRMMRMRRM
+        
+        
+        //MMRMMRMRRM
         Rover rover2 = new Rover(new Mapa.Coordenadas(3), new Mapa.Coordenadas(3), Direcao.E);
         
         rover2.processCommands(new Command[]{Command.M, Command.M,
             Command.R, Command.M, Command.M, Command.R,
             Command.M, Command.R, Command.R, Command.M});
         
-        System.out.println(rover2.getPosition());
+        
+        System.out.println(rover2.getPosicao());
     }
 }
