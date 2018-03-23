@@ -9,11 +9,11 @@ public class RoverTeste {
 	Rover rover;
 	@Before
 	public void beforeEachMethod() {
-		GridSize size = new GridSize(100,100);
-		Position pos = new Position(0, 0,size);
-		Direction pos = direcao.EAST;
+		GridSize size = new GridSize(5,5);
+		Posicao  pos = new Posicao(0, 0,size);
+		Direcao  pos = Direcao.EAST;
 
-		rover = new Rover(x, y, direcao);
+		rover = new Rover(x, y, Direcao);
 
 		@Test
 	public void test1() {
@@ -21,7 +21,7 @@ public class RoverTeste {
 		RoverTeste.traverse(rover, navigation);
 		assertEquals(rover.getCurrentPosition().getXPos(), 0);
 		assertEquals(rover.getCurrentPosition().getYPos(), 1);
-		assertEquals(rover.getdirecao(), direcao.EAST);
+		assertEquals(rover.getdirecao(), Direcao.EAST);
 
 		@Test
 	public void test2() {
@@ -29,12 +29,12 @@ public class RoverTeste {
 		RoverTeste.traverse(rover, navigation);
 		assertEquals(rover.getCurrentPosition().getXPos(), 0);
 		assertEquals(rover.getCurrentPosition().getYPos(), 2);
-		assertEquals(rover.getdirecao(), direcao.EAST);
+		assertEquals(rover.getdirecao(), Direcao.EAST);
 
 		@Test
 	public void test3() {
 		String navigation = "b";
 		RoverTeste.traverse(rover, navigation);
 		assertEquals(rover.getCurrentPosition().getXPos(), 0);
-		assertEquals(rover.getCurrentPosition().getYPos(), 99);
-		assertEquals(rover.getdirecao(), direcao.EAST);
+		assertEquals(rover.getCurrentPosition().getYPos(), 5);
+		assertEquals(rover.getdirecao(), Direcao.EAST);
